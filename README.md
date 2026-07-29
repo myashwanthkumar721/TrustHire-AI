@@ -1,4 +1,4 @@
-#  TrustHire AI
+## 🚀 TrustHire AI
 
 > AI-powered Resume Analysis and Hiring Assistant built with FastAPI and JavaScript.
 
@@ -6,10 +6,9 @@
 
 ##  Overview
 
-TrustHire AI is an AI-powered hiring assistant that helps job seekers improve their resumes and helps recruiters evaluate candidates efficiently.
+TrustHire AI is an AI-powered recruitment platform that helps job seekers optimize their resumes and enables recruiters to evaluate candidates more efficiently.
 
-The application analyzes resumes, calculates ATS scores, matches candidates with job roles, generates AI-powered cover letters, conducts AI interview simulations, and creates hiring reports.
-
+It analyzes resumes, calculates ATS scores, performs role-based skill matching, generates AI-powered cover letters, simulates interviews, and produces comprehensive hiring reports through an intuitive web interface.
 ---
 
 ## ✨ Features
@@ -70,7 +69,15 @@ TrustHire-AI/
 ├── .env.example
 └── README.md
 ```
+## 🏗 Architecture
 
+Frontend (HTML, CSS, JavaScript)
+        ↓
+FastAPI Backend
+        ↓
+Resume Processing & AI Services
+        ↓
+Google Gemini API
 ---
 
 ##  Installation
@@ -139,10 +146,6 @@ http://127.0.0.1:8000
 
 ## 📸 Screenshots
 
-Add screenshots inside the `screenshots` folder.
-
-Example:
-
 - Home Page
 - Resume Upload
 - Resume Analysis
@@ -188,4 +191,8 @@ If you found this project useful, consider giving it a ⭐ on GitHub.
 
 ## 📄 License
 
-This project is developed for educational and portfolio purposes.
+This project is intended for educational, portfolio, and demonstration purposes.
+
+---
+
+⭐ If you like this project, don't forget to star the repository!
