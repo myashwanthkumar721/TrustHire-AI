@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>TrustHire AI</title>
+
+    <link rel="stylesheet"
+        href="/frontend/css/home.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= Loading Screen ================= -->
+
+    <div id="loader">
+
+        <div class="loaderCircle"></div>
+
+        <h1>TrustHire AI</h1>
+
+        <p>Preparing AI Hiring Assistant...</p>
+
+    </div>
+
+    <!-- ================= Mouse Glow ================= -->
+
+    <div class="mouseGlow"></div>
+
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+
+    <!-- ================= Navbar ================= -->
+
+    <nav class="glassNav">
+
+        <div class="logo">
+
+            🤖 TrustHire AI
+
+        </div>
+
+        <ul>
+
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#features">Features</a></li>
+
+            <li><a href="#stats">Statistics</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+        <button class="loginBtn">
+
+            Login
+
+        </button>
+
+    </nav>
+
+    <!-- ================= Hero ================= -->
+
+    <section class="hero reveal">
+
+        <div class="hero-left">
+
+            <span class="badge">
+
+                AI Powered Recruitment Platform
+
+            </span>
+
+            <span class="badge">
+
+    🚀 Next Generation AI Recruitment Platform
+
+</span>
+
+        <h1>
+
+            Hire Smarter.
+            Recruit Faster.
+            Build Better Teams.
+
+        </h1>
+
+    <h2>
+
+            Resume Analysis • ATS Optimization • AI Interviews • Hiring Analytics
+
+    </h2>
+
+<p>
+
+            TrustHire AI is an intelligent recruitment platform that helps
+            recruiters and candidates with AI-powered resume screening,
+            ATS optimization, personalized interview generation,
+            skill-gap analysis, hiring recommendations,
+            and complete recruitment analytics.
+
+</p>
+
+        <div class="hero-highlights">
+
+            <div>⚡ AI Powered</div>
+
+            <div>🎯 95% ATS Accuracy</div>
+
+            <div>📄 Instant Resume Analysis</div>
+
+            <div>🤖 Smart Interview Evaluation</div>
+
+            </div>
+
+            <div class="heroButtons">
+
+                <button id="uploadBtn"
+                    onclick="window.location.href='/frontend/upload.html'">
+
+                    🚀 Get Started
+
+                </button>
+
+                <button class="secondaryBtn">
+
+                    ▶ Watch Demo
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <div class="dashboard">
+
+                <h3>AI Hiring Dashboard</h3>
+
+                <div class="progressCard">
+
+                    <span>Resume Score</span>
+
+                    <span id="resumeCounter">0%</span>
+
+                </div>
+
+                <div class="progressCard">
+
+                    <span>ATS Score</span>
+
+                    <span id="atsCounter">0%</span>
+
+                </div>
+
+                <div class="progressCard">
+
+                    <span>Interview Score</span>
+
+                    <span id="interviewCounter">0%</span>
+
+                </div>
+
+                <div class="progressCard">
+
+                    <span>Hiring Decision</span>
+
+                    <span class="hire">
+
+                        Hire
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= Trusted Technologies ================= -->
+
+    <section
+        class="trusted reveal">
+
+        <h2>
+
+            Built With Modern Technologies
+
+        </h2>
+
+        <div class="logos">
+
+            <span>Python</span>
+
+            <span>FastAPI</span>
+
+            <span>HTML5</span>
+
+            <span>CSS3</span>
+
+            <span>JavaScript</span>
+
+            <span>AI</span>
+
+        </div>
+
+    </section>
+
+    <!-- ================= Statistics ================= -->
+
+    <section
+        id="stats"
+        class="stats reveal">
+
+        <div class="statCard">
+
+            <h1>10K+</h1>
+
+            <p>Resumes Analyzed</p>
+
+        </div>
+
+        <div class="statCard">
+
+            <h1>95%</h1>
+
+            <p>ATS Accuracy</p>
+
+        </div>
+
+        <div class="statCard">
+
+            <h1>30+</h1>
+
+            <p>Skills Evaluated</p>
+
+        </div>
+
+        <div class="statCard">
+
+            <h1>24/7</h1>
+
+            <p>AI Availability</p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= Features ================= -->
+
+    <section
+        id="features"
+        class="features reveal">
+
+        <h2>
+
+            Powerful AI Features
+
+        </h2>
+
+        <div class="featureGrid">
+
+            <div class="card">
+
+                <h3>📄 Resume Parser</h3>
+
+                <p>
+
+                    Extract skills, education,
+                    certifications, projects,
+                    experience and contact details instantly.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎯 ATS Checker</h3>
+
+                <p>
+
+                    Compare resumes against job requirements,
+                    calculate ATS scores and identify missing skills.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🤖 AI Interview</h3>
+
+                <p>
+
+                    Generate personalized interview questions,
+                    conduct interviews,
+                    and evaluate candidate performance using AI.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>📊 Recruiter Dashboard</h3>
+
+                <p>
+
+                    Compare candidates,
+                    rank applicants,
+                    and generate hiring decisions.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>📝 AI Cover Letter</h3>
+
+                <p>
+
+                    Generate professional,
+                    personalized cover letters
+                    for any selected job role.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>📈 Hiring Analytics</h3>
+
+                <p>
+
+                    Visualize recruitment insights,
+                    AI reports,
+                    and hiring recommendations.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= Testimonials ================= -->
+
+    <section
+        class="testimonials reveal">
+
+        <h2>
+
+            What Users Say
+
+        </h2>
+
+        <div class="testimonialGrid">
+
+            <div class="testimonial">
+
+                <p>
+
+                    "TrustHire AI made candidate evaluation much faster and more organized."
+
+                </p>
+
+                <h4>
+
+                    Recruiter
+
+                </h4>
+
+            </div>
+
+            <div class="testimonial">
+
+                <p>
+
+                    "The AI interview evaluation provides useful feedback for improvement."
+
+                </p>
+
+                <h4>
+
+                    Candidate
+
+                </h4>
+
+            </div>
+
+            <div class="testimonial">
+
+                <p>
+
+                    "The ATS analysis and interview reports are easy to understand."
+
+                </p>
+
+                <h4>
+
+                    HR Professional
+
+                </h4>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= Footer ================= -->
+
+    <footer
+        id="contact"
+        class="reveal">
+
+        <h2>
+
+            🤖 TrustHire AI
+
+        </h2>
+
+        <p>
+
+            AI Powered Hiring Assistant
+
+        </p>
+
+        <p>
+
+            Hire Faster • Hire Smarter • Hire Better
+
+        </p>
+
+        <p>
+
+            © 2026 TrustHire AI • All Rights Reserved
+
+        </p>
+
+    </footer>
+
+    <script src="/frontend/js/app.js"></script>
+
+</body>
+
+</html>

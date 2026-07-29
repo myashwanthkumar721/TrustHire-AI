@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustHire AI - Interview Simulator</title>
+
+    <link rel="stylesheet" href="interview.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>🤖 AI Interview Simulator</h1>
+            <p>Powered by TrustHire AI</p>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loadingScreen" class="loading-screen">
+
+            <div class="loader"></div>
+
+            <h2>Generating Personalized Interview...</h2>
+
+            <p>
+                Our AI is analyzing your resume and creating
+                unique interview questions.
+            </p>
+
+        </div>
+
+        <!-- Interview -->
+        <div id="interviewContainer" class="hidden">
+
+            <!-- Top Bar -->
+            <div class="top-bar">
+
+                <div>
+
+                    <h2 id="candidateName">Candidate</h2>
+
+                    <p id="candidateRole">
+                        Role
+                    </p>
+
+                </div>
+
+                <div class="timer">
+
+                    ⏳ <span id="timer">30:00</span>
+
+                </div>
+
+            </div>
+
+            <!-- Progress -->
+
+            <div class="progress-section">
+
+                <div class="progress-info">
+
+                    <span id="questionCounter">
+
+                        Question 1 / 10
+
+                    </span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div id="progressFill"></div>
+
+                </div>
+
+            </div>
+
+            <!-- Question -->
+
+            <div class="question-card">
+
+                <div class="question-meta">
+
+                    <span id="questionType">
+                        Technical
+                    </span>
+
+                    <span id="difficulty">
+                        Easy
+                    </span>
+
+                </div>
+
+                <h2 id="questionText">
+
+                    Loading...
+
+                </h2>
+
+            </div>
+
+            <!-- Answer -->
+
+            <div class="answer-section">
+
+                <textarea
+                    id="answerBox"
+                    placeholder="Type your answer here..."
+                ></textarea>
+
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="buttons">
+
+                <button id="prevBtn">
+
+                    Previous
+
+                </button>
+
+                <button id="nextBtn">
+
+                    Next
+
+                </button>
+
+                <button
+                    id="submitBtn"
+                    class="hidden"
+                >
+
+                    Submit Interview
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="interview.js"></script>
+
+</body>
+
+</html>

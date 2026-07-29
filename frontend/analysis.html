@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        TrustHire AI Dashboard
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/frontend/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- =========================
+     Navigation
+========================= -->
+
+<nav>
+
+    <h2>
+
+        🤖 TrustHire AI
+
+    </h2>
+
+</nav>
+
+<!-- =========================
+     Dashboard
+========================= -->
+
+<section class="dashboard">
+
+<!-- =========================
+     Hero Section
+========================= -->
+
+<div class="hero-card">
+
+    <div class="hero-left">
+
+        <h1 id="candidateName"></h1>
+
+        <p class="role-text">
+
+            🎯 Desired Role
+
+            <span id="role"></span>
+
+        </p>
+
+        <p class="hero-description">
+
+            Your resume has been successfully analyzed by
+            TrustHire AI.
+
+            Review your resume score, ATS performance,
+            skill analysis and AI recommendations below.
+
+        </p>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="hero-badge">
+
+            AI Resume Analysis
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     Score Cards
+========================= -->
+
+<div class="score-grid">
+
+    <div class="card score-card">
+
+        <h3>
+
+            Resume Score
+
+        </h3>
+
+        <h1 id="score"></h1>
+
+        <p>
+
+            Resume Quality
+
+        </p>
+
+    </div>
+
+    <div class="card score-card">
+
+        <h3>
+
+            Job Match
+
+        </h3>
+
+        <h1 id="match"></h1>
+
+        <p>
+
+            Role Compatibility
+
+        </p>
+
+    </div>
+
+    <div class="card score-card">
+
+        <h3>
+
+            Hiring Readiness
+
+        </h3>
+
+        <h2 id="readiness"></h2>
+
+        <p>
+
+            AI Recommendation
+
+        </p>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     ATS Analysis
+========================= -->
+
+<div class="card ats-card">
+
+    <div class="section-title">
+
+        <h2>
+
+            📄 ATS Resume Analysis
+
+        </h2>
+
+        <div class="ats-score-box">
+
+            ATS Score
+
+            <span id="atsScore"></span>
+
+        </div>
+
+    </div>
+
+    <div class="ats-grid">
+
+        <div class="ats-column">
+
+            <h3>
+
+                ✅ Keywords Found
+
+            </h3>
+
+            <ul id="keywordsFound"></ul>
+
+        </div>
+
+        <div class="ats-column">
+
+            <h3>
+
+                ❌ Missing Keywords
+
+            </h3>
+
+            <ul id="keywordsMissing"></ul>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- =========================
+     Skill Analytics
+========================= -->
+
+<div class="card">
+
+    <div class="section-title">
+
+        <h2>
+
+            📊 Skill Analytics
+
+        </h2>
+
+    </div>
+
+    <div class="chart-container">
+
+        <canvas id="skillsChart"></canvas>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     Must Have Skills
+========================= -->
+
+<div class="card">
+
+    <h2>
+
+        ✅ Must Have Skills
+
+    </h2>
+
+    <ul id="mustSkills"></ul>
+
+</div>
+
+<!-- =========================
+     Good Skills
+========================= -->
+
+<div class="two-column">
+
+    <div class="card">
+
+        <h2>
+
+            ⭐ Matched Good Skills
+
+        </h2>
+
+        <ul id="goodMatched"></ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+
+            ❌ Missing Good Skills
+
+        </h2>
+
+        <ul id="goodMissing"></ul>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     Bonus Skills
+========================= -->
+
+<div class="two-column">
+
+    <div class="card">
+
+        <h2>
+
+            🚀 Matched Bonus Skills
+
+        </h2>
+
+        <ul id="bonusMatched"></ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+
+            📌 Missing Bonus Skills
+
+        </h2>
+
+        <ul id="bonusMissing"></ul>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     Skill Progress
+========================= -->
+
+<div class="card">
+
+    <h2>
+
+        📈 Skill Progress
+
+    </h2>
+
+    <div class="progress-box">
+
+        <p>
+
+            Must Have Skills
+
+            <span id="mustPercent"></span>
+
+        </p>
+
+        <div class="progress">
+
+            <div id="mustBar"></div>
+
+        </div>
+
+        <p>
+
+            Good Skills
+
+            <span id="goodPercent"></span>
+
+        </p>
+
+        <div class="progress">
+
+            <div id="goodBar"></div>
+
+        </div>
+
+        <p>
+
+            Bonus Skills
+
+            <span id="bonusPercent"></span>
+
+        </p>
+
+        <div class="progress">
+
+            <div id="bonusBar"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     Learning Roadmap
+========================= -->
+
+<div class="card">
+
+    <h2>
+
+        📚 Personalized Learning Roadmap
+
+    </h2>
+
+    <ol id="roadmap"></ol>
+
+</div>
+
+<!-- =========================
+     AI Recommendation
+========================= -->
+
+<div class="card recommendation-card">
+
+    <h2>
+
+        💡 AI Recommendation
+
+    </h2>
+
+    <p id="recommendation"></p>
+
+</div>
+<!-- =========================
+     Resume Suggestions
+========================= -->
+
+<div class="two-column">
+
+    <div class="card">
+
+        <h2>
+
+            💡 Resume Improvement Suggestions
+
+        </h2>
+
+        <ul id="resumeSuggestions"></ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+
+            🚀 Recommended Projects
+
+        </h2>
+
+        <ul id="projectSuggestions"></ul>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     Learning Resources
+========================= -->
+
+<div class="two-column">
+
+    <div class="card">
+
+        <h2>
+
+            📚 Learning Resources
+
+        </h2>
+
+        <ul id="learningResources"></ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+
+            🎯 Next Steps
+
+        </h2>
+
+        <ul id="nextSteps"></ul>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     Cover Letter
+========================= -->
+
+<div class="card cover-letter-card">
+
+    <div class="section-title">
+
+        <h2>
+
+            📄 AI Cover Letter
+
+        </h2>
+
+    </div>
+
+    <p>
+
+        Generate a professional AI-powered cover letter
+        based on your resume and selected job role.
+
+    </p>
+
+    <button id="generateCoverLetter">
+
+        ✨ Generate Cover Letter
+
+    </button>
+
+</div>
+
+<!-- =========================
+     Interview Questions
+========================= -->
+
+<div class="card">
+
+    <div class="section-title">
+
+        <h2>
+
+            🎤 AI Interview Questions
+
+        </h2>
+
+    </div>
+
+    <ol id="questions"></ol>
+
+    <div class="center-btn">
+
+        <button id="startInterview">
+
+            🚀 Start AI Interview
+
+        </button>
+
+    </div>
+
+</div>
+<!-- =========================
+     Footer
+========================= -->
+
+</section>
+
+<footer>
+
+    <p>
+
+        © 2026 TrustHire AI
+
+    </p>
+
+</footer>
+
+<!-- =========================
+     Scripts
+========================= -->
+
+<script src="/frontend/js/analysis.js"></script>
+
+</body>
+
+</html>

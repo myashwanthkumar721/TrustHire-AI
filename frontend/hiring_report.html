@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        AI Hiring Decision Report
+
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/frontend/css/hiring_report.css">
+
+</head>
+
+<body>
+
+<!-- ======================================
+     Navbar
+====================================== -->
+
+<nav>
+
+    <div class="logo">
+
+        🤖 TrustHire AI
+
+    </div>
+
+    <div class="nav-title">
+
+        AI Hiring Decision Report
+
+    </div>
+
+</nav>
+
+<!-- ======================================
+     Header
+====================================== -->
+
+<header class="hero">
+
+    <h1>
+
+        AI Hiring Decision Report
+
+    </h1>
+
+    <p>
+
+        Professional candidate evaluation generated using
+        Resume Analysis, ATS Evaluation, AI Interview,
+        and Recruiter Insights.
+
+    </p>
+
+</header>
+
+<!-- ======================================
+     Candidate Profile
+====================================== -->
+
+<section class="container">
+
+    <div class="card">
+
+        <h2>
+
+            👤 Candidate Profile
+
+        </h2>
+
+        <div class="profile-grid">
+
+            <div>
+
+                <label>
+
+                    Candidate Name
+
+                </label>
+
+                <h3 id="candidateName"></h3>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Applied Role
+
+                </label>
+
+                <h3 id="candidateRole"></h3>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Email
+
+                </label>
+
+                <h3 id="candidateEmail"></h3>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Phone
+
+                </label>
+
+                <h3 id="candidatePhone"></h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<!-- ======================================
+     Score Overview
+====================================== -->
+
+    <div class="score-grid">
+
+        <div class="score-card">
+
+            <h4>
+
+                Resume Score
+
+            </h4>
+
+            <h1 id="resumeScore">
+
+                0%
+
+            </h1>
+
+        </div>
+
+        <div class="score-card">
+
+            <h4>
+
+                ATS Score
+
+            </h4>
+
+            <h1 id="atsScore">
+
+                0%
+
+            </h1>
+
+        </div>
+
+        <div class="score-card">
+
+            <h4>
+
+                Interview Score
+
+            </h4>
+
+            <h1 id="interviewScore">
+
+                0%
+
+            </h1>
+
+        </div>
+
+        <div class="score-card overall">
+
+            <h4>
+
+                Overall Hiring Score
+
+            </h4>
+
+            <h1 id="overallScore">
+
+                0%
+
+            </h1>
+
+        </div>
+
+    </div>
+
+<!-- ======================================
+     AI Decision
+====================================== -->
+
+    <div class="card decision-card">
+
+        <h2>
+
+            🏆 AI Hiring Decision
+
+        </h2>
+
+        <div
+            id="decisionBadge"
+            class="decision-badge">
+
+            Pending
+
+        </div>
+
+        <p id="decisionText">
+
+        </p>
+
+    </div>
+    <!-- ======================================
+     Strengths & Weaknesses
+====================================== -->
+
+    <div class="two-column">
+
+        <div class="card">
+
+            <h2>
+
+                💪 Candidate Strengths
+
+            </h2>
+
+            <ul id="strengths">
+
+            </ul>
+
+        </div>
+
+        <div class="card">
+
+            <h2>
+
+                📌 Areas for Improvement
+
+            </h2>
+
+            <ul id="weaknesses">
+
+            </ul>
+
+        </div>
+
+    </div>
+
+<!-- ======================================
+     AI Recommendation
+====================================== -->
+
+    <div class="card">
+
+        <h2>
+
+            🤖 AI Recommendation
+
+        </h2>
+
+        <p id="recommendation">
+
+        </p>
+
+    </div>
+
+<!-- ======================================
+     Executive Summary
+====================================== -->
+
+    <div class="card">
+
+        <h2>
+
+            📊 Executive Summary
+
+        </h2>
+
+        <div class="summary-grid">
+
+            <div>
+
+                <label>
+
+                    Hiring Readiness
+
+                </label>
+
+                <h3 id="readiness">
+
+                </h3>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Interview Rating
+
+                </label>
+
+                <h3 id="rating">
+
+                </h3>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Recruiter Status
+
+                </label>
+
+                <h3 id="status">
+
+                </h3>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Report Generated
+
+                </label>
+
+                <h3 id="generatedDate">
+
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<!-- ======================================
+     Candidate Skills
+====================================== -->
+
+    <div class="card">
+
+        <h2>
+
+            🛠 Candidate Skills
+
+        </h2>
+
+        <div
+            id="skillsContainer"
+            class="skills-container">
+
+        </div>
+
+    </div>
+
+<!-- ======================================
+     Recruiter Notes
+====================================== -->
+
+    <div class="card">
+
+        <h2>
+
+            📝 Recruiter Notes
+
+        </h2>
+
+        <textarea
+            id="recruiterNotes"
+            rows="7"
+            placeholder="Write recruiter notes here..."></textarea>
+
+    </div>
+    <!-- ======================================
+     Final Verdict
+====================================== -->
+
+    <div class="card verdict-card">
+
+        <h2>
+
+            🏆 Final Hiring Verdict
+
+        </h2>
+
+        <div
+            id="finalVerdict"
+            class="verdict">
+
+            Pending
+
+        </div>
+
+        <p id="verdictMessage">
+
+            Waiting for AI evaluation...
+
+        </p>
+
+    </div>
+
+<!-- ======================================
+     Recruiter Actions
+====================================== -->
+
+    <div class="card action-card">
+
+        <h2>
+
+            📄 Report Actions
+
+        </h2>
+
+        <div class="action-buttons">
+
+            <button id="downloadReport">
+
+                📥 Download PDF
+
+            </button>
+
+            <button id="saveReport">
+
+                💾 Save Report
+
+            </button>
+
+            <button id="backDashboard">
+
+                📊 Recruiter Dashboard
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================
+     Footer
+====================================== -->
+
+<footer>
+
+    <p>
+
+        © 2026 TrustHire AI
+
+    </p>
+
+    <p>
+
+        AI Powered Hiring Decision Report
+
+    </p>
+
+</footer>
+
+<!-- ======================================
+     JavaScript
+====================================== -->
+
+<script src="/frontend/js/hiring_report.js"></script>
+
+</body>
+
+</html>

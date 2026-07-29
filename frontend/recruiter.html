@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Recruiter Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="/frontend/css/recruiter.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- Navigation -->
+    <!-- ========================= -->
+
+    <nav>
+
+        <h2>🤖 TrustHire AI</h2>
+
+        <span>Recruiter Dashboard</span>
+
+    </nav>
+
+
+    <!-- ========================= -->
+    <!-- Header -->
+    <!-- ========================= -->
+
+    <section class="header">
+
+        <h1>Recruiter Dashboard</h1>
+
+        <p>
+
+            Manage all candidates,
+            rankings,
+            hiring decisions,
+            analytics,
+            and recruitment workflows.
+
+        </p>
+
+    </section>
+
+<!-- ========================= -->
+<!-- Dashboard Statistics -->
+<!-- ========================= -->
+
+<section class="analytics">
+
+    <div class="card">
+
+        <h2>Total Candidates</h2>
+
+        <h1 id="totalCandidates">0</h1>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Shortlisted</h2>
+
+        <h1 id="shortlistedCount">0</h1>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Rejected</h2>
+
+        <h1 id="rejectedCount">0</h1>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Average ATS</h2>
+
+        <h1 id="averageATS">0%</h1>
+
+    </div>
+
+</section>
+
+
+    <!-- ========================= -->
+    <!-- Controls -->
+    <!-- ========================= -->
+
+    <section class="controls">
+
+        <input
+
+            type="text"
+
+            id="searchCandidate"
+
+            placeholder="Search Candidate"
+
+        >
+
+        <select id="roleFilter">
+
+            <option value="All">
+
+                All Roles
+
+            </option>
+
+        </select>
+
+        <select id="sortBy">
+
+            <option value="resume">
+
+                Resume Score
+
+            </option>
+
+            <option value="ats">
+
+                ATS Score
+
+            </option>
+
+            <option value="match">
+
+                Job Match
+
+            </option>
+
+        </select>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- Candidate Ranking Table -->
+    <!-- ========================= -->
+
+    <section class="table-section">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Rank</th>
+
+                    <th>Name</th>
+
+                    <th>Role</th>
+
+                    <th>Resume</th>
+
+                    <th>ATS</th>
+
+                    <th>Match</th>
+
+                    <th>Status</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="candidateTable">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- Analytics -->
+    <!-- ========================= -->
+
+    <section class="analytics">
+
+        <!-- Resume Score -->
+
+        <div class="card">
+
+            <h2>
+
+                📊 Resume Scores
+
+            </h2>
+
+            <canvas
+
+                id="resumeChart"
+
+                height="250">
+
+            </canvas>
+
+        </div>
+
+
+        <!-- Role Distribution -->
+
+        <div class="card">
+
+            <h2>
+
+                🥧 Role Distribution
+
+            </h2>
+
+            <canvas
+
+                id="roleChart"
+
+                height="250">
+
+            </canvas>
+
+        </div>
+
+    </section>
+    <!-- ========================= -->
+<!-- Candidate Comparison -->
+<!-- ========================= -->
+
+<section class="comparison">
+
+    <h2>
+
+        ⚖ Compare Candidates
+
+    </h2>
+
+    <div class="compareBox">
+
+        <select id="compareOne">
+
+            <option value="">Select Candidate 1</option>
+
+        </select>
+
+        <select id="compareTwo">
+
+            <option value="">Select Candidate 2</option>
+
+        </select>
+
+        <button id="compareBtn">
+
+            Compare
+
+        </button>
+
+    </div>
+
+    <div id="comparisonResult">
+
+    </div>
+
+</section>
+
+
+    <!-- ========================= -->
+    <!-- Footer -->
+    <!-- ========================= -->
+
+    <footer>
+
+        <p>
+
+            © 2026 TrustHire AI |
+            Recruiter Analytics Dashboard
+
+        </p>
+
+    </footer>
+
+
+    <script src="/frontend/js/recruiter.js"></script>
+
+<div id="toast"></div>
+
+</body>
+
+</html>

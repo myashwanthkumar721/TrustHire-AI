@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Candidate Details</title>
+
+    <link rel="stylesheet"
+          href="/frontend/css/recruiter.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <h2>🤖 TrustHire AI</h2>
+
+    <span>Candidate Details</span>
+
+</nav>
+
+<!-- ================= HEADER ================= -->
+
+<section class="header">
+
+    <h1 id="candidateName"></h1>
+
+    <p id="candidateRole"></p>
+
+</section>
+
+<!-- ================= SCORE CARDS ================= -->
+
+<section class="analytics">
+
+    <div class="card">
+
+        <h2>Resume Score</h2>
+
+        <h1 id="resumeScore"></h1>
+
+    </div>
+
+    <div class="card">
+
+        <h2>ATS Score</h2>
+
+        <h1 id="atsScore"></h1>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Job Match</h2>
+
+        <h1 id="jobMatch"></h1>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Status</h2>
+
+        <select id="candidateStatus">
+
+            <option value="New">New</option>
+
+            <option value="Shortlisted">Shortlisted</option>
+
+            <option value="Interview">Interview</option>
+
+            <option value="Rejected">Rejected</option>
+
+            <option value="Hired">Hired</option>
+
+        </select>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section class="analytics">
+
+    <div class="card">
+
+        <h2>Contact Information</h2>
+
+        <p><b>Email :</b> <span id="email"></span></p>
+
+        <p><b>Phone :</b> <span id="phone"></span></p>
+
+        <p><b>LinkedIn :</b> <span id="linkedin"></span></p>
+
+        <p><b>GitHub :</b> <span id="github"></span></p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Professional Summary</h2>
+
+        <p><b>Experience :</b> <span id="experience"></span></p>
+
+        <p><b>Education :</b> <span id="education"></span></p>
+
+        <p><b>Projects :</b> <span id="projects"></span></p>
+
+        <p><b>Certifications :</b> <span id="certifications"></span></p>
+
+    </div>
+
+</section>
+
+<!-- ================= RESUME SUMMARY ================= -->
+
+<section class="analytics">
+
+    <div class="card">
+
+        <h2>Resume Summary</h2>
+
+        <p id="resumeSummary"></p>
+
+    </div>
+
+</section>
+
+<!-- ================= SKILLS ================= -->
+
+<section class="analytics">
+
+    <div class="card">
+
+        <h2>Skills</h2>
+
+        <ul id="skills"></ul>
+
+    </div>
+
+</section>
+
+<!-- ================= MUST SKILLS ================= -->
+
+<section class="analytics">
+
+    <div class="card">
+
+        <h2>Matched Must Skills</h2>
+
+        <ul id="matchedMust"></ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Missing Must Skills</h2>
+
+        <ul id="missingMust"></ul>
+
+    </div>
+
+</section>
+
+<!-- ================= GOOD SKILLS ================= -->
+
+<section class="analytics">
+
+    <div class="card">
+
+        <h2>Matched Good Skills</h2>
+
+        <ul id="matchedGood"></ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Missing Good Skills</h2>
+
+        <ul id="missingGood"></ul>
+
+    </div>
+
+</section>
+
+<!-- ================= BONUS SKILLS ================= -->
+
+<section class="analytics">
+
+    <div class="card">
+
+        <h2>Matched Bonus Skills</h2>
+
+        <ul id="matchedBonus"></ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Missing Bonus Skills</h2>
+
+        <ul id="missingBonus"></ul>
+
+    </div>
+
+</section>
+
+<!-- ================= RECOMMENDATION ================= -->
+
+<section class="analytics">
+
+    <div class="card">
+
+        <h2>AI Recommendation</h2>
+
+        <p id="recommendation"></p>
+
+    </div>
+
+</section>
+
+<!-- ================= RECRUITER NOTES ================= -->
+
+<section class="analytics">
+
+    <div class="card">
+
+        <h2>Recruiter Notes</h2>
+
+        <textarea
+            id="notes"
+            rows="6"
+            placeholder="Write recruiter notes..."></textarea>
+
+        <br><br>
+
+        <button id="saveNotes">
+
+            💾 Save Notes
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================= ACTION BUTTONS ================= -->
+
+<section class="analytics">
+
+    <button id="shortlistBtn">
+
+        ✅ Shortlist
+
+<!-- ================= ACTION BUTTONS ================= -->
+
+<section class="analytics">
+
+    <div class="card action-card">
+
+        <h2>Recruiter Actions</h2>
+
+        <div class="action-buttons">
+
+            <button id="shortlistBtn">
+                ✅ Shortlist
+            </button>
+
+            <button id="rejectBtn">
+                ❌ Reject
+            </button>
+
+            <button id="downloadReport">
+                📄 Download PDF
+            </button>
+
+            <button onclick="history.back()">
+                ← Back
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+
+        © 2026 TrustHire AI
+
+    </p>
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="/frontend/js/candidate_details.js"></script>
+
+<div id="toast"></div>
+
+</body>
+
+</html>

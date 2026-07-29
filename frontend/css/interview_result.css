@@ -1,0 +1,582 @@
+/* ==========================================
+   TrustHire AI Interview Result
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+
+    background:#eef3ff;
+
+    color:#1e293b;
+
+}
+
+/* ===========================
+   Navbar
+=========================== */
+
+nav{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 60px;
+
+    background:white;
+
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+
+nav h2{
+
+    color:#2563eb;
+
+}
+
+nav span{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#555;
+
+}
+
+/* ===========================
+   Dashboard
+=========================== */
+
+.dashboard{
+
+    width:92%;
+
+    max-width:1450px;
+
+    margin:auto;
+
+    padding:35px 0 70px;
+
+}
+
+/* ===========================
+   Hero Card
+=========================== */
+
+.hero-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:white;
+
+    padding:45px;
+
+    border-radius:22px;
+
+    margin-bottom:35px;
+
+    box-shadow:0 15px 40px rgba(37,99,235,.25);
+
+}
+
+.hero-left{
+
+    flex:1;
+
+}
+
+.hero-left h1{
+
+    font-size:48px;
+
+    margin-bottom:18px;
+
+}
+
+.role-text{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.role-text span{
+
+    color:#fde68a;
+
+    margin-left:8px;
+
+}
+
+.hero-description{
+
+    line-height:32px;
+
+    max-width:650px;
+
+    opacity:.95;
+
+}
+
+.hero-right{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.hero-badge{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    backdrop-filter:blur(12px);
+
+}
+
+/* ===========================
+   Score Cards
+=========================== */
+
+.score-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+
+    margin:35px 0;
+
+}
+
+.card{
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.score-card{
+
+    text-align:center;
+
+}
+
+.score-card h3{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+.score-card h1{
+
+    font-size:48px;
+
+    color:#1e293b;
+
+}
+
+.score-card p{
+
+    margin-top:10px;
+
+    color:#64748b;
+
+}
+/* ===========================
+   Section Titles
+=========================== */
+
+.section-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.section-title h2{
+
+    color:#1e3a8a;
+
+}
+
+/* ===========================
+   Two Column Layout
+=========================== */
+
+.two-column{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+    margin:30px 0;
+
+}
+
+.two-column ul{
+
+    margin-top:15px;
+
+    padding-left:22px;
+
+}
+
+.two-column li{
+
+    margin:10px 0;
+
+    line-height:28px;
+
+}
+
+/* ===========================
+   Recommendation Card
+=========================== */
+
+.recommendation-card{
+
+    background:linear-gradient(135deg,#ffffff,#f8fbff);
+
+    border-left:6px solid #2563eb;
+
+}
+
+.recommendation-card p{
+
+    font-size:17px;
+
+    line-height:32px;
+
+    color:#475569;
+
+}
+
+/* ===========================
+   Action Card
+=========================== */
+
+.action-card{
+
+    text-align:center;
+
+}
+
+.action-card p{
+
+    color:#64748b;
+
+    margin:20px auto 30px;
+
+    max-width:700px;
+
+    line-height:30px;
+
+}
+
+.action-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.action-buttons button{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    background:#2563eb;
+
+    color:white;
+
+    transition:.3s;
+
+}
+
+.action-buttons button:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+}
+
+/* ===========================
+   Lists
+=========================== */
+
+ul{
+
+    padding-left:22px;
+
+}
+
+li{
+
+    margin:10px 0;
+
+    line-height:28px;
+
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer{
+
+    margin-top:60px;
+
+    background:#1e293b;
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px;
+
+}
+
+footer p{
+
+    opacity:.9;
+
+}
+/* ===========================
+   Buttons
+=========================== */
+
+button{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+#downloadBtn{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+#dashboardBtn{
+
+    background:#16a34a;
+
+    color:white;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:900px){
+
+.analytics{
+
+    grid-template-columns:1fr;
+
+}
+
+.two-column{
+
+    grid-template-columns:1fr;
+
+}
+
+.score-card h1{
+
+    font-size:36px;
+
+}
+
+.header h1{
+
+    font-size:32px;
+
+}
+
+.action-buttons{
+
+    flex-direction:column;
+
+}
+
+button{
+
+    width:100%;
+
+}
+
+.section-title{
+
+    flex-direction:column;
+
+    gap:10px;
+
+    text-align:center;
+
+}
+
+}
+
+/* ===========================
+   Animation
+=========================== */
+
+.card{
+
+    animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563eb;
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#eef3ff;
+
+}

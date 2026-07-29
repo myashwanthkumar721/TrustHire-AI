@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+venv/
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Database
+*.db
+*.sqlite3
+
+# Uploaded Files
+uploads/resumes/*
+!uploads/resumes/.gitkeep
+
+# Reports
+reports/*
+!reports/.gitkeep
+
+# API Key File
+api key.txt
+
+# OS Files
+.DS_Store
+Thumbs.db
