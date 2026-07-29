@@ -154,7 +154,7 @@ http://127.0.0.1:8000
 ![Resume Upload](screenshots/upload.png)
 
 ### 📊 Resume Analysis
-![Resume Analysis](screenshots/resume-analysis.png)
+![Resume Analysis](screenshots/resume analysis.png)
 
 ### 🎯 ATS Score
 ![ATS Score](screenshots/ats.png)
