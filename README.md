@@ -146,14 +146,28 @@ http://127.0.0.1:8000
 
 ## 📸 Screenshots
 
-- Home Page
-- Resume Upload
-- Resume Analysis
-- ATS Score
-- Cover Letter
-- Interview Simulator
-- Recruiter Dashboard
-- Hiring Report
+# 📸 Application Screenshots
+
+## 🏠 Home Page
+![Home](screenshots/home.png)
+
+## 📄 Resume Upload
+![Upload](screenshots/upload.png)
+
+## 📊 Resume Analysis
+![Resume Analysis](screenshots/resume-analysis.png)
+
+## 🎯 ATS Score Analysis
+![ATS](screenshots/ats.png)
+
+## 📝 AI Cover Letter Generator
+![Cover Letter](screenshots/cover-letter-generator.png)
+
+## 🎤 AI Interview Simulator
+![Interview](screenshots/interview-simulator.png)
+
+## 👨‍💼 Recruiter Dashboard
+![Recruiter Dashboard](screenshots/recruiter-dashboard.png)
 
 ---
 
