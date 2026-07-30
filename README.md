@@ -160,7 +160,7 @@ http://127.0.0.1:8000
 ![ATS Score](screenshots/ats.png)
 
 ### 📝 AI Cover Letter Generator
-![Cover Letter](screenshots/cover-letter-generator.png)
+![Cover Letter Generator](screenshots/cover-letter-generator.png)
 
 ### 🎤 AI Interview Simulator
 ![Interview Simulator](screenshots/interview-simulator.png)
