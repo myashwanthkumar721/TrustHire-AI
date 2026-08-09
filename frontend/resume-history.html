@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Resume History | TrustHire AI</title>
+
+    <link rel="stylesheet" href="css/resume-history.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🤖 TrustHire AI
+        </div>
+
+        <button
+            id="dashboardBtn"
+            class="nav-btn"
+        >
+            Dashboard
+        </button>
+
+    </nav>
+
+
+    <main class="container">
+
+        <section class="page-header">
+
+            <div>
+
+                <h1>Resume History</h1>
+
+                <p>
+                    View all resumes you have uploaded to TrustHire AI.
+                </p>
+
+            </div>
+
+            <div class="resume-count">
+
+                <span id="resumeCount">0</span>
+
+                <small>
+                    Resumes
+                </small>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="loading"
+            class="message"
+        >
+            Loading resume history...
+        </section>
+
+
+        <section
+            id="error"
+            class="message error hidden"
+        ></section>
+
+
+        <section
+            id="empty"
+            class="message hidden"
+        >
+
+            <h2>No Resumes Yet</h2>
+
+            <p>
+                Upload your first resume to start your AI hiring journey.
+            </p>
+
+            <button
+                id="uploadBtn"
+                class="primary-btn"
+            >
+                Upload Resume
+            </button>
+
+        </section>
+
+
+        <section
+            id="resumeList"
+            class="resume-list hidden"
+        ></section>
+
+    </main>
+
+
+    <script src="js/resume-history.js"></script>
+
+</body>
+
+</html>

@@ -1,47 +1,112 @@
-const analyzeBtn = document.getElementById("analyzeBtn");
+﻿const analyzeBtn = document.getElementById("analyzeBtn");
 const resumeInput = document.getElementById("resumeFile");
 
 analyzeBtn.addEventListener("click", async () => {
 
-    if (resumeInput.files.length === 0) {
-        alert("Please select a resume.");
+    // ==============================
+    // Check Login
+    // ==============================
+
+    const currentUser = JSON.parse(
+        localStorage.getItem("currentUser")
+    );
+
+    if (!currentUser) {
+
+        alert("Please login before uploading a resume.");
+
+        window.location.href =
+            "/frontend/auth.html";
+
         return;
     }
 
+    // ==============================
+    // Check Resume
+    // ==============================
+
+    if (resumeInput.files.length === 0) {
+
+        alert("Please select a resume.");
+
+        return;
+    }
+
+    // ==============================
+    // Prepare Upload
+    // ==============================
+
     const formData = new FormData();
-    formData.append("file", resumeInput.files[0]);
+
+    formData.append(
+        "file",
+        resumeInput.files[0]
+    );
+
+    formData.append(
+        "user_id",
+        currentUser.id
+    );
 
     try {
 
-        const response = await fetch("http://127.0.0.1:8000/upload", {
-            method: "POST",
-            body: formData
-        });
-
-        if (!response.ok) {
-            throw new Error("Upload failed.");
-        }
+        const response = await fetch(
+            "http://127.0.0.1:8000/upload",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
 
         const data = await response.json();
 
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail || "Upload failed."
+            );
+
+        }
+
+        // ==============================
         // Current Candidate
+        // ==============================
+
         localStorage.setItem(
             "candidate",
             JSON.stringify(data.resume)
         );
 
-        // Clear previous analysis
+        // Save uploaded resume ID
+        localStorage.setItem(
+            "currentResumeId",
+            data.resume_id
+        );
+
+        // ==============================
+        // Clear Previous Analysis
+        // ==============================
+
         localStorage.removeItem("analysis");
         localStorage.removeItem("interviewResult");
         localStorage.removeItem("selectedCandidate");
 
-        window.location.href = "/frontend/results.html";
+        // ==============================
+        // Continue
+        // ==============================
+
+        window.location.href =
+            "/frontend/results.html";
 
     }
     catch (error) {
 
         console.error(error);
-        alert("Upload failed.");
+
+        alert(
+            error.message ||
+            "Upload failed."
+        );
 
     }
 
