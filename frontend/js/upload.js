@@ -1,4 +1,4 @@
-﻿const analyzeBtn = document.getElementById("analyzeBtn");
+const analyzeBtn = document.getElementById("analyzeBtn");
 const resumeInput = document.getElementById("resumeFile");
 
 analyzeBtn.addEventListener("click", async () => {
@@ -51,7 +51,7 @@ analyzeBtn.addEventListener("click", async () => {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:8000/upload",
+            "/upload",
             {
                 method: "POST",
                 body: formData
