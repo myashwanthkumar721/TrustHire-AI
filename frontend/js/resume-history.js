@@ -46,7 +46,7 @@ async function loadResumeHistory() {
     try {
 
         const response = await fetch(
-            `http://127.0.0.1:8000/resumes/${currentUser.id}`
+            `/resumes/${currentUser.id}`
         );
 
         const data = await response.json();
