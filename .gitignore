@@ -33,3 +33,4 @@ api key.txt
 # OS Files
 .DS_Store
 Thumbs.db
+.vercel

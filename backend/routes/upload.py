@@ -1,7 +1,7 @@
 ﻿from fastapi import APIRouter, UploadFile, File, Form, Depends, HTTPException
 from sqlalchemy.orm import Session
-import shutil
 import os
+import tempfile
 
 from backend.database.connection import get_db
 from backend.database.models import User, Resume
@@ -10,17 +10,9 @@ from backend.services.extractor import extract_resume_info
 from backend.services.parser import extract_text_from_pdf
 from backend.services.role_matcher import analyze_resume
 from backend.services.ats_analyzer import analyze_ats
-from backend.services.resume_suggestions import generate_resume_suggestions
 
 router = APIRouter()
 
-UPLOAD_FOLDER = "uploads/resumes"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
-
-# -----------------------------
-# Upload Resume
-# -----------------------------
 
 @router.post("/upload")
 async def upload_resume(
@@ -28,8 +20,9 @@ async def upload_resume(
     user_id: int = Form(...),
     db: Session = Depends(get_db)
 ):
-
-    # Check user exists
+    # -----------------------------
+    # Validate user
+    # -----------------------------
     user = db.query(User).filter(User.id == user_id).first()
 
     if not user:
@@ -38,57 +31,122 @@ async def upload_resume(
             detail="User not found."
         )
 
-    # Save resume file
-    file_path = os.path.join(
-        UPLOAD_FOLDER,
-        file.filename
-    )
+    # -----------------------------
+    # Validate file
+    # -----------------------------
+    if not file.filename:
+        raise HTTPException(
+            status_code=400,
+            detail="No file was provided."
+        )
 
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
+    if not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(
+            status_code=400,
+            detail="Only PDF files are supported."
+        )
 
-    # Extract resume text
-    text = extract_text_from_pdf(file_path)
+    # -----------------------------
+    # Read uploaded PDF into memory
+    # -----------------------------
+    try:
+        file_bytes = await file.read()
 
-    # Extract candidate information
-    resume_data = extract_resume_info(text)
+        if not file_bytes:
+            raise HTTPException(
+                status_code=400,
+                detail="The uploaded file is empty."
+            )
 
-    # Save resume in database
-    resume = Resume(
-        user_id=user.id,
-        filename=file.filename,
-        file_path=file_path,
-        status="uploaded",
-        parsed_text=text
-    )
+        # Existing parser expects a path, so temporarily write
+        # only for local compatibility if required.
+        #
+        # On Vercel, /tmp is the writable temporary filesystem.
+        with tempfile.NamedTemporaryFile(
+        delete=False,
+        suffix=".pdf"
+        ) as temp_file:
+          temp_file.write(file_bytes)
+          temp_path = temp_file.name
+        # -----------------------------
+        # Extract PDF text
+        # -----------------------------
+        text = extract_text_from_pdf(temp_path)
 
-    db.add(resume)
-    db.commit()
-    db.refresh(resume)
+    except HTTPException:
+        raise
 
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Unable to process the uploaded PDF: {str(exc)}"
+        )
+
+    finally:
+        # Remove temporary file if it was created.
+        try:
+            if "temp_path" in locals() and os.path.exists(temp_path):
+                os.remove(temp_path)
+        except Exception:
+            pass
+
+    # -----------------------------
+    # Extract resume information
+    # -----------------------------
+    try:
+        resume_data = extract_resume_info(text)
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Unable to extract resume information: {str(exc)}"
+        )
+
+    # -----------------------------
+    # Save resume metadata + text
+    # -----------------------------
+    try:
+        logical_file_path = os.path.join(
+            "uploads",
+            "resumes",
+            os.path.basename(file.filename)
+        )
+
+        resume = Resume(
+            user_id=user.id,
+            filename=os.path.basename(file.filename),
+            file_path=logical_file_path,
+            status="uploaded",
+            parsed_text=text
+        )
+
+        db.add(resume)
+        db.commit()
+        db.refresh(resume)
+
+    except Exception as exc:
+        db.rollback()
+
+        raise HTTPException(
+            status_code=500,
+            detail=f"Unable to save resume information: {str(exc)}"
+        )
+
+    # -----------------------------
+    # Return response
+    # -----------------------------
     return {
         "message": "Resume uploaded successfully",
         "resume_id": resume.id,
-        "filename": file.filename,
+        "filename": os.path.basename(file.filename),
         "user_id": user.id,
         "resume": resume_data
     }
 
 
-# -----------------------------
-# Analyze Resume
-# -----------------------------
-
 @router.post("/analyze")
 async def analyze(data: dict):
-
     role = data.get("role")
-
-    # Accept BOTH frontend and Swagger formats
-    candidate = (
-        data.get("resume")
-        or data.get("candidate")
-    )
+    candidate = data.get("resume") or data.get("candidate")
 
     if role is None:
         return {
@@ -108,17 +166,12 @@ async def analyze(data: dict):
 
     return result
 
-# -----------------------------
-# Resume History
-# -----------------------------
 
 @router.get("/resumes/{user_id}")
 async def get_resume_history(
     user_id: int,
     db: Session = Depends(get_db)
 ):
-
-    # Check user exists
     user = db.query(User).filter(User.id == user_id).first()
 
     if not user:
@@ -142,9 +195,11 @@ async def get_resume_history(
                 "id": resume.id,
                 "filename": resume.filename,
                 "status": resume.status,
-                "uploaded_at": resume.uploaded_at.isoformat()
-                if resume.uploaded_at
-                else None
+                "uploaded_at": (
+                    resume.uploaded_at.isoformat()
+                    if resume.uploaded_at
+                    else None
+                )
             }
             for resume in resumes
         ]
